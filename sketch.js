@@ -6,7 +6,12 @@ let skeleton;
 let ballSize = 0.1;
 let yesSize = 100;
 let noSize = 100;
+let choice = [];
 
+let song1;
+let song2;
+let song3;
+let song4;
 //buttons----
 let left_x;
 let left_y;
@@ -22,7 +27,12 @@ let q3 =
   "If something good happens in your life, do you think it's because of your actions or pure luck?";
 let q4 =
   "You can prevent a global disaster but it would mean erasing yourself from existence. Would you do it?";
-
+function preload() {
+  song1 = loadSound("forrest.mp3");
+  song2 = loadSound("wind.mp3");
+  song3 = loadSound("rain.mp3");
+  song4 = loadSound("wave.mp3");
+}
 //SETUP------------------------------------------------------------------
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -111,8 +121,9 @@ function draw() {
     if (noSize > 150) {
       counter += 1;
       noSize = 100;
-      console.log("NO");
       ballSize += 0.1;
+      choice.push("YES");
+      console.log(choice);
     }
   }
   if (d1 > 150 && noSize > 101 && noSize < 151) {
@@ -124,8 +135,9 @@ function draw() {
     if (yesSize > 150) {
       counter += 1;
       yesSize = 100;
-      console.log("YES");
       ballSize -= 0.04;
+      choice.push("YES");
+      console.log(choice);
     }
   }
   if (d4 > 150 && yesSize > 101 && yesSize < 151) {
@@ -141,14 +153,21 @@ function draw() {
 
   if (counter == 1) {
     text(q1, width / 2, height / 8 - 30, width / 1.3);
+    song1.play();
   }
   if (counter == 2) {
     text(q2, width / 2, height / 8 - 30, width / 1.3);
+    song2.play();
   }
   if (counter == 3) {
     text(q3, width / 2, height / 8 - 30, width / 1.3);
+    song3.play();
   }
   if (counter == 4) {
     text(q4, width / 2, height / 8 - 30, width / 1.3);
+    song1.stop();
+    song2.stop();
+    song3.stop();
+    song4.play();
   }
 }
