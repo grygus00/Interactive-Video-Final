@@ -24,9 +24,8 @@ let q1 =
 let q2 =
   "You have the power to remove all pain from your life, but it also means you'll never truly appreciate happiness. Would you use this power?";
 let q3 =
-  "If something good happens in your life, do you think it's because of your actions or pure luck?";
-let q4 =
   "You can prevent a global disaster but it would mean erasing yourself from existence. Would you do it?";
+let q4 = "Are you happy?";
 function preload() {
   song1 = loadSound("forrest.mp3");
   song2 = loadSound("wind.mp3");
@@ -153,18 +152,20 @@ function draw() {
 
   if (counter == 1) {
     text(q1, width / 2, height / 8 - 30, width / 1.3);
-    song1.play();
   }
   if (counter == 2) {
     text(q2, width / 2, height / 8 - 30, width / 1.3);
-    song2.play();
+    song1.play();
   }
   if (counter == 3) {
     text(q3, width / 2, height / 8 - 30, width / 1.3);
-    song3.play();
+    song2.play();
   }
   if (counter == 4) {
     text(q4, width / 2, height / 8 - 30, width / 1.3);
+    song3.play();
+  }
+  if (counter == 5) {
     song1.stop();
     song2.stop();
     song3.stop();
